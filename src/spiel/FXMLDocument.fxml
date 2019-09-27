@@ -26,7 +26,7 @@
          <children>
             <TextField id="chatboxInput" prefHeight="31.0" prefWidth="600.0" />
             <Separator orientation="VERTICAL" prefHeight="62.0" prefWidth="70.0" />
-            <Button id="buttonSendMessage" mnemonicParsing="false" style="-fx-pref-width: 125;" text="Send" />
+            <Button id="buttonSendMessage" mnemonicParsing="false" onAction="#handleSendButtonAction" style="-fx-pref-width: 125;" text="Send" />
          </children>
       </HBox>
    </bottom>
