@@ -26,7 +26,7 @@
          <children>
             <TextField id="chatboxInput" prefHeight="31.0" prefWidth="600.0" />
             <Separator orientation="VERTICAL" prefHeight="62.0" prefWidth="70.0" />
-            <Button id="buttonSendMessage" mnemonicParsing="false" onAction="#handleSendButtonAction" style="-fx-pref-width: 125;" text="Send" />
+            <Button id="buttonSendMessage" mnemonicParsing="false" onAction="#handleChatboxOutput" style="-fx-pref-width: 125;" text="Send" />
          </children>
       </HBox>
    </bottom>
@@ -38,6 +38,6 @@
       </TitledPane>
    </right>
    <center>
-      <TextArea id="chatboxOutput" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <TextArea id="chatboxOutput" fx:id="chatboxOutput" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

@@ -5,17 +5,21 @@
  */
 package spiel;
 
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import spiel.FXMLDocumentController;
 
 /**
  *
  * @author gafaa
  */
 public class Spiel extends Application {
+    
+    //private static FXMLDocumentController objFXML = new FXMLDocumentController();
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -25,8 +29,14 @@ public class Spiel extends Application {
         
         stage.setScene(scene);
         stage.show();
-        
-        System.out.print("poop");
+        /*
+        ArrayList<String> arrayVar = new ArrayList();
+        arrayVar.add("Hii");
+        arrayVar.add("Hii2");
+        arrayVar.add("Hii3");
+        //String chatHistory = convertArrayList(arrayVar);
+        //loadChatBox(chatHistory);
+        */
     }
 
     /**
@@ -35,9 +45,28 @@ public class Spiel extends Application {
     public static void main(String[] args) {
         launch(args);
         
-        System.out.println("pooooooooop");
+        //FXMLDocumentController.loadChatBox("blah blah");
+        
+        
+        
+        
+    }
+    
+    public static void printToScreen(FXMLDocumentController obj, String input){
+        obj.loadChatBox(input);
     }
     
     
+    public String convertArrayList(ArrayList tempArrayList) {
+        String returnString = "";
+        for (int i = 0; i < tempArrayList.size(); i++) {
+            returnString += tempArrayList.get(i) + "\n";
+        }
+        System.out.println(returnString);
+        return returnString;
+    }
+    public static void loadChatHistory(String tempChatHistory){
+    //chatboxOutput
     
+    }
 }
