@@ -48,7 +48,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleChatboxOutput(){
-        
+        loadChatBox("butt\npoop\ndeez\nnuts");
     }
     
     @FXML

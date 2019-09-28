@@ -7,38 +7,37 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="822.0" style="-fx-pref-width: 830; -fx-min-width: 830; -fx-pref-height: 630; -fx-min-height: 630;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="822.0" style="-fx-pref-width: 830; -fx-min-width: 830; -fx-pref-height: 630; -fx-min-height: 630;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spiel.FXMLDocumentController">
    <top>
       <HBox alignment="CENTER" prefHeight="68.0" prefWidth="822.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField promptText="Username" />
+            <TextField id="usernameInputBox" promptText="Username" />
             <Separator orientation="VERTICAL" prefHeight="68.0" prefWidth="33.0" style="-fx-pref-width: 20;" />
             <PasswordField text="Password" />
             <Separator orientation="VERTICAL" prefHeight="200.0" style="-fx-pref-width: 80;" />
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-pref-width: 125;" text="Connect" />
+            <Button id="buttonConnect" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-pref-width: 125;" text="Connect" />
             <Separator orientation="VERTICAL" prefHeight="200.0" style="-fx-pref-width: 10;" />
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" style="-fx-pref-width: 125;" text="Disconnect" />
+            <Button id="buttonDIsconnect" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" style="-fx-pref-width: 125;" text="Disconnect" />
          </children>
       </HBox>
    </top>
    <bottom>
       <HBox alignment="CENTER" prefHeight="62.0" prefWidth="830.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField prefHeight="31.0" prefWidth="600.0" />
+            <TextField id="chatboxInput" prefHeight="31.0" prefWidth="600.0" />
             <Separator orientation="VERTICAL" prefHeight="62.0" prefWidth="70.0" />
-            <Button mnemonicParsing="false" style="-fx-pref-width: 125;" text="Send" />
+            <Button id="buttonSendMessage" mnemonicParsing="false" onAction="#handleChatboxOutput" style="-fx-pref-width: 125;" text="Send" />
          </children>
       </HBox>
    </bottom>
    <right>
       <TitledPane animated="false" prefHeight="510.0" prefWidth="202.0" text="Users" BorderPane.alignment="CENTER">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane id="usernameDisplay" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </content>
       </TitledPane>
    </right>
    <center>
-      <TextArea prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <TextArea id="chatboxOutput" fx:id="chatboxOutput" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
