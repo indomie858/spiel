@@ -1,0 +1,20 @@
+Kenneth Woo 15 minutes
+public static void main(String[] args) {
+String x;
+int y;
+Scanner scan = new Scanner(System.in);
+ArrayList<String> array = new ArrayList<String>();
+System.out.println("enter the number of elements");
+y = scan.nextInt();
+System.out.println("Enter inputs");
+for(int i = 0; i <= y;i++) {
+
+x = scan.nextLine();
+array.add(x);
+
+}
+for(int j = 0; j <= y; j++) {
+System.out.println(array.get(j));
+}
+
+}
