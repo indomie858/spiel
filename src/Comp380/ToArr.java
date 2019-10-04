@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*; 
 import java.util.Arrays; 
 
-
+//15mins
 public class ToArr
 {
 	public static void main (String args[])
