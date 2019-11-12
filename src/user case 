@@ -1,0 +1,10 @@
+import javax.swing.*;
+import java.awt.*;
+JFrame f = new JFrame();
+
+f.setSize(350,300);
+
+f.setVisible(true);
+
+f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+f.getContentPane().setBackground(Color.pink);
