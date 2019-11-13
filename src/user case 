@@ -1,10 +1,6 @@
-import javax.swing.*;
-import java.awt.*;
-JFrame f = new JFrame();
-
-f.setSize(350,300);
-
-f.setVisible(true);
-
-f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-f.getContentPane().setBackground(Color.pink);
+    private void helpButtonAction() {
+           //ImageIcon test = new ImageIcon("471808.jpg"); 
+          //JOptionPane.showMessageDialog(null,"help","",JOptionPane.INFORMATION_MESSAGE,test);               
+UIManager UI=new UIManager();
+ UI.put("OptionPane.background", Color.pink);
+ UI.put("Panel.background", Color.pink);
