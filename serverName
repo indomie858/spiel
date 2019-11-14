@@ -1,0 +1,30 @@
+
+package randomname;
+import java.util.Random;
+
+/**
+ *
+ * @author Nivek
+ */
+public class RandomName {
+       /*public static void main(String[] args) {
+           
+           System.out.println(randomName());
+          // System.out.println((int)(Math.random()*100));
+       
+       }*/
+
+
+
+public static String randomName() {
+    String[] randomName = {"Alpha", "Beta", "Charlie"};
+    String n;
+    int x =3;
+    n = randomName[(int)(Math.random()*x)];
+    
+    return n;
+}
+
+
+    
+}
