@@ -1,0 +1,15 @@
+                   
+UIManager UI=new UIManager();
+ UI.put("OptionPane.background", Color.pink);
+ UI.put("Panel.background", Color.pink);
+ 
+ 
+ 
+ 
+       //ImageIcon test = new ImageIcon("471808.jpg"); 
+          //JOptionPane.showMessageDialog(null,test); 
+                 
+       //ImageIcon image=new ImageIcon("C:\\Users\\Yang\\Documents\\NetBeansProjects\\SpielClient 3\\src\\spiel\\471808.jpg");
+//JLabel label=new JLabel(image);
+//JPanel panel=new JPanel();
+//panel.add(label);
