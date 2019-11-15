@@ -2,14 +2,55 @@
 UIManager UI=new UIManager();
  UI.put("OptionPane.background", Color.pink);
  UI.put("Panel.background", Color.pink);
- 
+ （UI manager can change the background color）
  
  
  
        //ImageIcon test = new ImageIcon("471808.jpg"); 
           //JOptionPane.showMessageDialog(null,test); 
-                 
+          
+          (you can use this to add background picture. but I can not figure out why this picture can not show up with the help text yet )
+                
        //ImageIcon image=new ImageIcon("C:\\Users\\Yang\\Documents\\NetBeansProjects\\SpielClient 3\\src\\spiel\\471808.jpg");
+
+
 //JLabel label=new JLabel(image);
 //JPanel panel=new JPanel();
-//panel.add(label);
+//panel.add(label);  
+(Jpanel not works with our code)
+
+/// ****** this shit works dependently  
+JFrame frame=new JFrame();   
+     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
+     ImageIcon img = new ImageIcon("471803.jpg");   
+     JLabel imgLabel = new JLabel(img);  put image to label
+   
+     frame.getLayeredPane().add(imgLabel, new Integer(Integer.MIN_VALUE));// put image label tp LayeredPan  
+     imgLabel.setBounds(0,0,img.getIconWidth(), img.getIconHeight());//put imagelabel location  
+     Container cp=frame.getContentPane();   
+     cp.setLayout(null); // absolute layout
+     ((JPanel)cp).setOpaque(false); shit works 
+     **********************///////////
+but you use Joptionpane for the dialog, I do know how to add the text
+
+it need a container But frame.getContentPane(); not works with our code. If we do this I have to change the whole HelpButton function.  
+
+
+////////***What I'm doing right now is using layear 
+JLayeredPane layeredPane;
+
+layeredPane.add(jp,JLayeredPane.DEFAULT_LAYER); picture on the bottom
+		
+		layeredPane.add(jtextara,JLayeredPane.MODAL_LAYER); text on the top
+		
+		
+		
+		still need sometimes 
+
+
+
+
+https://www.youtube.com/watch?v=TKNyTa44E-A (Jdialog probably works I w'll try this one too, if I still can not add picture with layer)
+
+
+
