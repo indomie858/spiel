@@ -1,3 +1,8 @@
+//S.P.I.E.L. Chat Application
+//Programmers: Frank Serdenia, Jordan Bradshaw, Hongsen Yang, Kenneth Woo,
+//             Joseph Olympia, and Gaven Grantz
+//Course: COMP 380 Virginia Mushkatblat
+
 package client;
 
 import java.io.*;
