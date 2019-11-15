@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//S.P.I.E.L. Chat Application
+//Programmers: Frank Serdenia, Jordan Bradshaw, Hongsen Yang, Kenneth Woo,
+//             Joseph Olympia, and Gaven Grantz
+//Course: COMP 380 Virginia Mushkatblat
+
 package client;
 
 import java.io.*;
