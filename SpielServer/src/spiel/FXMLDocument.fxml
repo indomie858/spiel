@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spiel.ServerController">
+    <children>
+        <Button fx:id="startServerButton" layoutX="109.0" layoutY="63.0" onAction="#handleStartButtonAction" text="Start Server" />
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Button fx:id="endServerButton" layoutX="109.0" layoutY="114.0" mnemonicParsing="false" onAction="#handleEndButtonAction" prefHeight="37.0" prefWidth="104.0" text="End Server" />
+    </children>
+</AnchorPane>
