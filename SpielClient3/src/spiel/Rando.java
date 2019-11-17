@@ -34,17 +34,17 @@ public class Rando
 	{
         // do you want to pick from the random list of just let the program decide
 		
-        list.add("Ben Dover");
-        list.add("Awimba Weh");
-        list.add("Kash Register");
-        list.add("Shay Kitoff");
-        list.add("Back Cardi");
-        list.add("Its Britney B.");
-        list.add("Dirty Dan");
-        list.add("Pinhead Larry");
-        list.add("Sheik Yerbouti");
-        list.add("Jesus");
-        list.add("He");
+        list.add("Ben Dover"); list.add("Bill Clinton");
+        list.add("Awimba Weh"); list.add("George Washington");
+        list.add("Kash Register"); list.add("Oprah");
+        list.add("Shay Kitoff"); list.add("Dank Memes");
+        list.add("Back Cardi"); list.add("Your husband");
+        list.add("Its Britney B."); list.add("Your wife");
+        list.add("Dirty Dan"); list.add("Osama");
+        list.add("Pinhead Larry"); list.add("Gandhi");
+        list.add("Sheik Yerbouti"); list.add("Uranus");
+        list.add("Jesus"); list.add("Corn Hub");
+        list.add("He"); 
         list.add("She");
         list.add("Debt Collector");
         list.add("Your Bills");
@@ -67,7 +67,7 @@ public class Rando
         list.add("Depress champ");
         list.add("Winnie the Pooh");
         list.add("Mei");
-        list.add("Moses");
+        list.add("Yo mamama");
         list.add("Donald Trump");
    
         
