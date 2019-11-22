@@ -180,7 +180,9 @@ public class ClientThread extends Thread {
     public void updateOnlineUser(String message){
         
         // if their is a new user, add the new user to the clientList array list-----------------
-        if (message.contains("> is now online...") == true){            
+        if (message.contains("> is now online...") == true){ 
+            guiController.newUserSound();
+            
             for (String retval: message.split(">")){                
                     token.add(retval);
             }
