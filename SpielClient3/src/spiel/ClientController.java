@@ -18,23 +18,16 @@ import client.Message;
 import java.awt.Color;
 import java.awt.Font;
 import java.io.IOException;
-import java.net.Socket;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.util.Duration;
-import javafx.concurrent.*;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
 
 /**
  *
@@ -269,6 +262,13 @@ public class ClientController implements Initializable {  //client controller
     //Get Port number from Port text-field
     public String getPort() {
         return portField.getText();
+    }
+    
+    public void newUserSound(){
+        String musicFile = "newuser.mp3";     // For example
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
     }
     
 
