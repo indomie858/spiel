@@ -148,6 +148,12 @@ public class ClientController implements Initializable {  //client controller
     //this will show a pop-up menu box when the "help" button is clicked
     @FXML
     private void helpButtonAction() {
+        
+        UIManager UI=new UIManager();
+        UI.put("OptionPane.background", Color.RED);
+        UI.put("Panel.background", Color.lightGray);
+ 
+        
         JOptionPane optionPane = new JOptionPane(
                 "How to use chatbox: \n"
                 + "Step 1: Enter a username.      **Empty username will generate a random username. \n"
