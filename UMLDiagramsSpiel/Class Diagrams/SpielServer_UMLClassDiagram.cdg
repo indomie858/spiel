@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="ClientList" package="server" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="clientList" type="ArrayList&lt;String&gt;" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="clientCount" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="addClient" returnType="void" visibility="public">
+          <Argument type="String" name="client"/>
+        </Method>
+        <Method name="getArrayObject" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="getClientCount" returnType="int" visibility="public"/>
+        <Method name="removeClient" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="findClient" returnType="int" visibility="public">
+          <Argument type="String" name="client"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MessageHistory" package="server" visibility="public" xPosition="20.0" yPosition="513.0">
+      <Fields>
+        <Field name="storage" type="List&lt;String&gt;" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="messageCount" type="int" visibility="private"/>
+        <Field name="maxStorage" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package"/>
+        <Constructor visibility="package">
+          <Argument type="String" name="message"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addMessage" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="getMessage" returnType="String" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="setMaxStorage" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="getMaxStorage" returnType="int" visibility="public"/>
+        <Method name="getMessageCount" returnType="int" visibility="public"/>
+        <Method name="getArrayObject" returnType="List&lt;String&gt;" visibility="public"/>
+        <Method name="displayMessages" returnType="void" visibility="public"/>
+        <Method name="removeMessages" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="testing" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Server" package="server" visibility="public" xPosition="343.0" yPosition="19.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="private"/>
+        <Field name="portNumber" type="int" visibility="private"/>
+        <Field name="serverSocket" type="ServerSocket" visibility="private"/>
+        <Field name="connections" type="ArrayList&lt;ServerThread&gt;" visibility="private"/>
+        <Field name="isRunning" type="boolean" visibility="private"/>
+        <Field name="guiController" type="ServerController" visibility="private"/>
+        <Field name="serverThread" type="ServerThread" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="getServerSocket" returnType="ServerSocket" visibility="public"/>
+        <Method name="getConnections" returnType="ArrayList&lt;ServerThread&gt;" visibility="public"/>
+        <Method name="getIsRunning" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ServerThread" package="server" visibility="public" xPosition="336.0" yPosition="391.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="private"/>
+        <Field name="server" type="Server" visibility="private"/>
+        <Field name="outputStream" type="OutputStream" visibility="private"/>
+        <Field name="objectOutputStream" type="ObjectOutputStream" visibility="private"/>
+        <Field name="dataInputStream" type="DataInputStream" visibility="private"/>
+        <Field name="dataOutputStream" type="DataOutputStream" visibility="private"/>
+        <Field name="isRunning" type="boolean" visibility="private"/>
+        <Field name="firstConnectionForClient" type="boolean" visibility="private"/>
+        <Field name="messages" type="MessageHistory" visibility="private"/>
+        <Field name="clientList" type="ClientList" visibility="private"/>
+        <Field name="threadName" type="String" visibility="private"/>
+        <Field name="text" type="String" visibility="private"/>
+        <Field name="token" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="stObj" type="ServerThread" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Socket" name="socket"/>
+          <Argument type="Server" name="server"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="dateTime" returnType="String" visibility="private"/>
+        <Method name="sendStringToClient" returnType="void" visibility="private">
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="sendStringToAllClients" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ServerController" package="spiel" visibility="public" xPosition="713.0" yPosition="39.0">
+      <Fields>
+        <Field name="portNumber" type="int" visibility="private"/>
+        <Field name="serverObj" type="Server" visibility="private"/>
+        <Field name="portTextField" type="TextField" visibility="private"/>
+        <Field name="startServerButton" type="Button" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="handleStartButtonAction" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="handleEndButtonAction" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Spiel" package="spiel" visibility="public" xPosition="749.0" yPosition="305.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Stage" name="stage"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="serverObj" source="spiel.ServerController" target="server.Server" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="stObj" source="server.ServerThread" target="server.ServerThread" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="server" source="server.ServerThread" target="server.Server" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="server.Server" target="server.Server" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="serverThread" source="server.Server" target="server.ServerThread" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="connections" source="server.Server" target="server.ServerThread" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;ServerThread&gt;"/>
+    <UseRelation source="server.Server" target="server.ServerThread" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guiController" source="server.Server" target="spiel.ServerController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="clientList" source="server.ServerThread" target="server.ClientList" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ClientList"/>
+    <HasRelation name="messages" source="server.ServerThread" target="server.MessageHistory" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
