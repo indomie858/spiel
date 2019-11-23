@@ -68,7 +68,7 @@
                   <Font name="Impact" size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="portField" layoutX="185.0" layoutY="64.0" prefHeight="37.0" prefWidth="86.0" promptText="PORT#" text="55555">
+            <TextField fx:id="portField" disable="true" editable="false" layoutX="185.0" layoutY="64.0" prefHeight="37.0" prefWidth="86.0" promptText="PORT#" text="55555">
                <font>
                   <Font name="Impact" size="16.0" />
                </font>
