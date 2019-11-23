@@ -26,7 +26,10 @@ public class Server {
      //  new Server();
     }
     
+   
+   /********
     public Server() {
+        Thread thread=new Thread(()->{
         System.out.println("Server is now online...");
         
         try {          
@@ -37,14 +40,18 @@ public class Server {
                 System.out.println("Client Accepted");
                 ServerThread stObject = new ServerThread(socket, this);
                 
-                stObject.start();
+                //stObject.start();
                
                 connections.add(stObject);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    });
+		thread.start();
+        }
+        
+        ********/
 
     public ServerSocket getServerSocket() {
         return serverSocket;
