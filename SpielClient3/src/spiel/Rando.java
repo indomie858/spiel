@@ -77,6 +77,7 @@ public class Rando
         
         int number = randomNumber.nextInt(arraySize);
         name = list.get(number);
+        Collections.shuffle(list);
         return name;
 	}
 
