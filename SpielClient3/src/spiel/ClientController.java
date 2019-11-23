@@ -152,7 +152,7 @@ public class ClientController implements Initializable {  //client controller
         JOptionPane optionPane = new JOptionPane(
                 "How to use chatbox: \n"
                 + "Step 1: Enter a username.      **Empty username will generate a random username. \n"
-                + "Step 2: Enter a port number.  **Leave it if you are confuse \n"
+                + "Step 2: Enter a port number.  **This feature is currently disabled until future updates \n"
                 + "Step 3: Enter an IP address.   **Only enter an IP address if you are trying to connect to a different computer. \n"
                 + "Step 4: Click connect.              **Assuming that the server is online; offline server will lead to no connection \n"
                 + "Step 5: Type message.            **Enter any message you like to send \n"
