@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Client" package="client" visibility="public" xPosition="815.0" yPosition="672.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="private"/>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="clientThread" type="ClientThread" visibility="private"/>
+        <Field name="guiController" type="ClientController" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ClientController" name="tempguiController"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="getClientThread" returnType="ClientThread" visibility="public"/>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="setUsername" returnType="void" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="closeSocket" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ClientList" package="client" visibility="public" xPosition="815.0" yPosition="30.0">
+      <Fields>
+        <Field name="clientList" type="ArrayList&lt;String&gt;" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="clientCount" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="addClient" returnType="void" visibility="public">
+          <Argument type="String" name="client"/>
+        </Method>
+        <Method name="getArrayObject" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="getClientCount" returnType="int" visibility="public"/>
+        <Method name="removeClient" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="findClient" returnType="int" visibility="public">
+          <Argument type="String" name="client"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ClientThread" package="client" visibility="public" xPosition="317.0" yPosition="881.0">
+      <Fields>
+        <Field name="clientObject" type="Client" visibility="private"/>
+        <Field name="socketObject" type="Socket" visibility="private"/>
+        <Field name="dataInputStream" type="DataInputStream" visibility="private"/>
+        <Field name="dataOutputStream" type="DataOutputStream" visibility="private"/>
+        <Field name="isRunning" type="boolean" visibility="private"/>
+        <Field name="firstTime" type="boolean" visibility="private"/>
+        <Field name="messages" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="objectInputStream" type="ObjectInputStream" visibility="private"/>
+        <Field name="object" type="Object" visibility="private"/>
+        <Field name="message" type="String" visibility="private"/>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="guiController" type="ClientController" visibility="private"/>
+        <Field name="clientList" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="token" type="ArrayList&lt;String&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Socket" name="socket"/>
+          <Argument type="Client" name="client"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="sendStringToServer" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="close" returnType="void" visibility="public"/>
+        <Method name="getMessage" returnType="String" visibility="public"/>
+        <Method name="getClientObject" returnType="Client" visibility="public"/>
+        <Method name="getSocketObject" returnType="Socket" visibility="public"/>
+        <Method name="setUsername" returnType="void" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="getMessages" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="setguiController" returnType="void" visibility="public">
+          <Argument type="ClientController" name="tempguiController"/>
+        </Method>
+        <Method name="updateOnlineUser" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Message" package="client" visibility="public" xPosition="815.0" yPosition="332.0">
+      <Fields>
+        <Field name="message" type="String" visibility="private"/>
+        <Field name="isNewMessage" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getMessage" returnType="String" visibility="public"/>
+        <Method name="setMessage" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="isNewMessage" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MessageHistory" package="client" visibility="public" xPosition="23.0" yPosition="446.0">
+      <Fields>
+        <Field name="storage" type="ArrayList&lt;String&gt;" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="messageCount" type="int" visibility="private"/>
+        <Field name="maxStorage" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package"/>
+        <Constructor visibility="package">
+          <Argument type="String" name="message"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addMessage" returnType="void" visibility="public">
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="getMessage" returnType="String" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="setMaxStorage" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="getMaxStorage" returnType="int" visibility="public"/>
+        <Method name="getMessageCount" returnType="int" visibility="public"/>
+        <Method name="getArrayObject" returnType="List&lt;String&gt;" visibility="public"/>
+        <Method name="displayMessages" returnType="void" visibility="public"/>
+        <Method name="removeMessages" returnType="void" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="testing" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ClientController" package="spiel" visibility="public" xPosition="317.0" yPosition="47.0">
+      <Fields>
+        <Field name="clientObj" type="Client" visibility="private"/>
+        <Field name="clientThread" type="ClientThread" visibility="private"/>
+        <Field name="clientIsConnected" type="boolean" visibility="private"/>
+        <Field name="update" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="disconnect" type="boolean" visibility="private"/>
+        <Field name="randomNum" type="int" visibility="private"/>
+        <Field name="quitButtonCheck" type="boolean" visibility="private"/>
+        <Field name="nameGenerator" type="Rando" visibility="private"/>
+        <Field name="messageObj" type="Message" visibility="private"/>
+        <Field name="usernameInputBox" type="TextField" visibility="private"/>
+        <Field name="chatBoxOutput" type="TextArea" visibility="private"/>
+        <Field name="userLobbyArea" type="TextArea" visibility="private"/>
+        <Field name="chatBoxInput" type="TextField" visibility="private"/>
+        <Field name="portField" type="TextField" visibility="private"/>
+        <Field name="ipField" type="TextField" visibility="private"/>
+        <Field name="sendButton" type="Button" visibility="private"/>
+        <Field name="connectButton" type="Button" visibility="private"/>
+        <Field name="disconnectButton" type="Button" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="handleSendButtonAction" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="handleConnectButtonAction" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="handleDisconnectButtonAction" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="helpButtonAction" returnType="void" visibility="private"/>
+        <Method name="quitButtonAction" returnType="void" visibility="private"/>
+        <Method name="handleChatDisplay" returnType="void" visibility="private"/>
+        <Method name="handleChatBox" returnType="void" visibility="private"/>
+        <Method name="handleUsernameInputbox" returnType="void" visibility="private"/>
+        <Method name="updateChatBoxOutput" returnType="void" visibility="public">
+          <Argument type="String" name="text"/>
+        </Method>
+        <Method name="updateOnlineUserTab" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="clearOnlineUserTab" returnType="void" visibility="public"/>
+        <Method name="removeOnlineUserTab" returnType="void" visibility="public"/>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="getIPAddress" returnType="String" visibility="public"/>
+        <Method name="getPort" returnType="String" visibility="public"/>
+        <Method name="newUserSound" returnType="void" visibility="public"/>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Rando" package="spiel" visibility="public" xPosition="23.0" yPosition="30.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="list" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="randomNumber" type="Random" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="randomName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Spiel" package="spiel" visibility="public" xPosition="23.0" yPosition="265.0">
+      <Fields>
+        <Field name="xOffset" type="double" visibility="private"/>
+        <Field name="yOffset" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Stage" name="stage"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="clientObject" source="client.ClientThread" target="client.Client" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="clientThread" source="client.Client" target="client.ClientThread" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="nameGenerator" source="spiel.ClientController" target="spiel.Rando" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="clientThread" source="spiel.ClientController" target="client.ClientThread" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="client.ClientThread" target="spiel.ClientController" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guiController" source="client.ClientThread" target="spiel.ClientController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="client.Client" target="client.ClientThread" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="client.ClientThread" target="client.Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guiController" source="client.Client" target="spiel.ClientController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="messageObj" source="spiel.ClientController" target="client.Message" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="clientObj" source="spiel.ClientController" target="client.Client" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
