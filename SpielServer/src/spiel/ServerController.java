@@ -6,7 +6,10 @@
 package spiel;
 
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import server.ClientList;
 import server.Server;
 
 /**
@@ -23,22 +27,19 @@ import server.Server;
  * @author gafaa
  */
 public class ServerController implements Initializable {  //server controller
-  /*****
     private int portNumber = 0;
     //private Server serverObj;
     private Server thread;
     private List clientList = new LinkedList();
     boolean started = false;
-    private ServerSocket ss = null; 
-   ******/ 
+    private ServerSocket ss = null;
+    
     @FXML
     private TextField portTextField = new TextField();
     @FXML
     private Button startServerButton = new Button();
     @FXML
     private void handleStartButtonAction(ActionEvent event) {
- 
-          private void handleStartButtonAction(ActionEvent event) {
       started = false;
                 clientList.clear();
                 try
@@ -54,8 +55,6 @@ public class ServerController implements Initializable {  //server controller
                 }
                 thread = new Server();
        
-        
-    }
         
     }
     
