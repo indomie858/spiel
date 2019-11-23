@@ -23,9 +23,14 @@ import server.Server;
  * @author gafaa
  */
 public class ServerController implements Initializable {  //server controller
+  /*****
     private int portNumber = 0;
-    private Server serverObj;
-    
+    //private Server serverObj;
+    private Server thread;
+    private List clientList = new LinkedList();
+    boolean started = false;
+    private ServerSocket ss = null; 
+   ******/ 
     @FXML
     private TextField portTextField = new TextField();
     @FXML
@@ -33,7 +38,24 @@ public class ServerController implements Initializable {  //server controller
     @FXML
     private void handleStartButtonAction(ActionEvent event) {
  
-       serverObj = new Server();
+          private void handleStartButtonAction(ActionEvent event) {
+      started = false;
+                clientList.clear();
+                try
+                {
+                    if (ss != null)
+                    {
+                        ss.close();
+                    }
+                }
+                catch(IOException e1)
+                {
+                    e1.printStackTrace();
+                }
+                thread = new Server();
+       
+        
+    }
         
     }
     
