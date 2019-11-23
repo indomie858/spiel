@@ -19,7 +19,7 @@ import java.util.Date;
  *
  * @author gafaa
  */
-public class ServerThread extends Thread {
+public class ServerThread extends Thread{
 
     private Socket socket;
     private Server server;
@@ -173,7 +173,7 @@ public class ServerThread extends Thread {
                 stObj.sendStringToClient(message);
                 
                 boolean connection = stObj.socket.isClosed();
-                System.out.println(stObj.threadName + " is " + connection);
+//              System.out.println(stObj.threadName + " is " + connection);
 //              InetAddress address = stObj.server.getServerSocket().getInetAddress();
 //              System.out.println(address + " is the address");
 

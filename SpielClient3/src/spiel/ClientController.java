@@ -123,7 +123,6 @@ public class ClientController implements Initializable {  //client controller
         ipField.setDisable(false);
         portField.setDisable(false);
         chatBoxInput.setDisable(true);
-        userLobbyArea.clear();
         usernameInputBox.clear();
         chatBoxOutput.appendText("You are now disconnected...  \n");
         disconnect = true;
@@ -132,8 +131,10 @@ public class ClientController implements Initializable {  //client controller
             
             //this will give the program enough time to process things before the client disconnects
             Thread.sleep(1000);
+            userLobbyArea.clear();
             clientObj.closeSocket();
             connectButton.setDisable(false);
+            
         } catch (InterruptedException ex) {
             
         }
@@ -181,10 +182,11 @@ public class ClientController implements Initializable {  //client controller
             
             //this will give enough time for the program to process things before the client leaves
             Thread.sleep(1000);
-            
+            userLobbyArea.clear();
         } catch (InterruptedException ex) {
            // ex.printStackTrace();
         }
+        
         System.exit(0);
     }
     
@@ -221,8 +223,13 @@ public class ClientController implements Initializable {  //client controller
     
     //Displays text in the chat box text-area
     public void updateChatBoxOutput(String text) {
-        chatBoxOutput.appendText(text + "\n");
-
+        if (text.contains("> is now online...")){
+            newUserSound();
+            chatBoxOutput.appendText(text + "\n");
+        }
+        else{
+                    chatBoxOutput.appendText(text + "\n");
+        }
     }
     
     //when a new client connects, this help add the client to the online user tab
