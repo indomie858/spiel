@@ -11,7 +11,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import spiel.ServerController;
 
-
+  
 public class Server {
     
     private Socket socket;
@@ -22,12 +22,8 @@ public class Server {
     private ServerController guiController;
     private ServerThread serverThread;
     
-    public static void main(String[] args) {
-     //  new Server();
-    }
+  
     
-   
-   /********
     public Server() {
         Thread thread=new Thread(()->{
         System.out.println("Server is now online...");
@@ -50,8 +46,7 @@ public class Server {
     });
 		thread.start();
         }
-        
-        ********/
+                
 
     public ServerSocket getServerSocket() {
         return serverSocket;
