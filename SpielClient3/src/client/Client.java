@@ -15,9 +15,10 @@ public class Client {
     private ClientThread clientThread;
     public ClientController guiController = null;
 
-    public static void main(String[] args) {
+    public Client () {
+    
     }
-
+    
     public Client(ClientController tempguiController) {
         guiController = tempguiController;
         
@@ -33,6 +34,10 @@ public class Client {
         } catch (Exception e) {
             guiController.updateChatBoxOutput("Invalid IP...");
         }
+    }
+
+    
+    public static void main(String[] args) {
     }
 
     public ClientThread getClientThread() {
