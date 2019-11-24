@@ -223,7 +223,7 @@ public class ClientController implements Initializable {  //client controller
     
     //Displays text in the chat box text-area
     public void updateChatBoxOutput(String text) {
-        if (text.contains("> is now online...")){
+        if ((text.contains("> is now online...") == true) && (text.contains(":") == false)){
             newUserSound();
             chatBoxOutput.appendText(text + "\n");
         }
