@@ -24,8 +24,11 @@
          <font>
             <Font name="Impact" size="16.0" />
          </font></Button>
-      <TextArea fx:id="serverTextfield" editable="false" layoutX="41.0" layoutY="61.0" opacity="0.88" prefHeight="193.0" prefWidth="382.0" stylesheets="@backgroundStyle.css" wrapText="true" />
-      <Button fx:id="exitButton" layoutX="319.0" layoutY="266.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="104.0" text="EXIT">
+      <TextArea fx:id="serverTextfield" editable="false" layoutX="41.0" layoutY="61.0" opacity="0.88" prefHeight="193.0" prefWidth="382.0" promptText="testing" stylesheets="@backgroundStyle.css" wrapText="true">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></TextArea>
+      <Button fx:id="exitButton" layoutX="319.0" layoutY="266.0" mnemonicParsing="false" onAction="#exitButtonAction" prefHeight="37.0" prefWidth="104.0" text="EXIT">
          <font>
             <Font name="Impact" size="16.0" />
          </font></Button>
