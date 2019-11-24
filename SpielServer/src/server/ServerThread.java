@@ -14,6 +14,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Date;
+import spiel.ServerController;
 
 /**
  *
@@ -35,6 +36,7 @@ public class ServerThread extends Thread{
     private String text = null;
     private ArrayList<String> token = new ArrayList<String>();
     private ServerThread stObj = null;
+    private ServerController guiController = null;
     
     
 
@@ -154,7 +156,8 @@ public class ServerThread extends Thread{
     }
     
     //writes string to client by dataoutputstream (dos)
-    private void sendStringToClient(String message) {   
+    private void sendStringToClient(String message) { 
+        
         try {
             dataOutputStream.writeUTF(message);
             dataOutputStream.flush();
@@ -175,5 +178,7 @@ public class ServerThread extends Thread{
             }
         }   
     }
+ 
+    
 
 }

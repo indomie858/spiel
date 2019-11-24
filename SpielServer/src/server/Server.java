@@ -19,15 +19,17 @@ public class Server {
     static private ServerSocket serverSocket;
     static private ArrayList<ServerThread> connections = new ArrayList<ServerThread>();
     static private boolean isRunning = true;
-    static private ServerController guiController;
-    static private ServerThread serverThread;
+    static private ServerController guiController = null;
+    static private ServerThread stObject;
 
     public static void main(String[] args) {
         //  new Server();
     }
 
-    public Server() {
+    public Server(ServerController tempguiController) {
+        guiController = tempguiController;
         System.out.println("Server is now online...");
+        guiController.updateChatBoxOutput("Server is now online... \n");
         this.startListening(this);
     }
 
@@ -56,7 +58,8 @@ public class Server {
                                 socket = serverSocket.accept();
 
                                 System.out.println("Client Accepted");
-                                ServerThread stObject = new ServerThread(socket, server);
+                                guiController.updateChatBoxOutput("Client Accepted... \n");
+                                stObject = new ServerThread(socket, server);
 
                                 stObject.start();
 
@@ -69,5 +72,24 @@ public class Server {
                 }}};
                 listeningThread.start();
     
+    }
+    public ServerThread getServerThread() {
+        return stObject;
+    }
+    
+    public void serverOffline() throws IOException{
+      
+        if (connections.size() != 0){
+            for (int i = 0; i < connections.size(); i++){
+                connections.get(i).sendStringToAllClients("Server is now offline! Disconnect client!");
+            }
+          connections.clear();
+        } else {
+            // do nothing
+     
         }
+    }
+    public void closeServerSocket() throws IOException {
+        serverSocket.close();
+    }
 }
