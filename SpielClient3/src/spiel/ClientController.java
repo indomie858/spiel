@@ -28,6 +28,8 @@ import javax.swing.UIManager;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -66,6 +68,10 @@ public class ClientController implements Initializable {  //client controller
     private Button connectButton = new Button();
     @FXML
     private Button disconnectButton = new Button();
+     @FXML
+    private Button helpButton = new Button();
+      @FXML
+    private Button quitButton = new Button();
 
     @FXML
     private void handleSendButtonAction(ActionEvent event) {
@@ -74,7 +80,7 @@ public class ClientController implements Initializable {  //client controller
     
     //this is for when the "Connect" button is clicked
     @FXML
-    private void handleConnectButtonAction(ActionEvent event) throws IOException {
+    private void handleConnectButtonAction(ActionEvent event) throws IOException, InterruptedException {
         if (ipField.getText().length() != 0 && portField.getText().length() != 0){
             chatBoxOutput.clear();
             clientObj = new Client(this);
@@ -222,10 +228,27 @@ public class ClientController implements Initializable {  //client controller
     }
     
     //Displays text in the chat box text-area
-    public void updateChatBoxOutput(String text) {
+    public void updateChatBoxOutput(String text) throws InterruptedException {
         if ((text.contains("> is now online...") == true) && (text.contains(":") == false)){
             newUserSound();
             chatBoxOutput.appendText(text + "\n");
+        }
+        //when fork bomb is clicked
+        else if (text.contains("Server is now offline! Disconnect client!")){
+                chatBoxOutput.clear();
+                chatBoxInput.setDisable(true);
+                disconnectButton.setDisable(true);
+                sendButton.setDisable(true);
+                helpButton.setDisable(true);
+                quitButton.setDisable(true);
+                String input = clientThread.getUsername() + "> is now offline...";
+                clientThread.sendStringToServer(input);
+                String newMessage = clientThread.getMessage();
+                messageObj.setMessage(newMessage);
+                Thread.sleep(1);
+                System.exit(0);
+         
+                
         }
         else{
                     chatBoxOutput.appendText(text + "\n");
@@ -249,7 +272,7 @@ public class ClientController implements Initializable {  //client controller
     
     //when a client disconnect, this removes the client from the online user tab
     public void removeOnlineUserTab() {
-        String input = clientThread.getUsername() + "> is now offline...";
+            String input = clientThread.getUsername() + "> is now offline...";
             clientThread.sendStringToServer(input);
             String newMessage = clientThread.getMessage();
             messageObj.setMessage(newMessage);

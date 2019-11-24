@@ -19,7 +19,7 @@ public class Client {
     
     }
     
-    public Client(ClientController tempguiController) {
+    public Client(ClientController tempguiController) throws InterruptedException {
         guiController = tempguiController;
         
         int portNumber = Integer.parseInt(guiController.getPort()); //takes the port number from GUI

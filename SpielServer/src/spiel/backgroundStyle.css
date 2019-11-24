@@ -1,0 +1,20 @@
+.bodyBackGround {
+    
+    -fx-background-image: url("/spiel/spiel_background.jpg");
+    
+}
+
+.text-area {
+    text-area-background: #3B3A3A  ;
+    -fx-text-fill: #FBF8F8;
+}
+.text-area .content {
+    -fx-background-color: text-area-background ;
+       
+}
+
+.text-input {
+    -fx-control-inner-background: #3B3A3A;  
+    -fx-prompt-text-fill: #FBF8F8;
+}
+
