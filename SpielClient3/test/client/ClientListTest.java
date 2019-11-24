@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//S.P.I.E.L. Chat Application
+//Programmers: Frank Serdenia, Jordan Bradshaw, Hongsen Yang, Kenneth Woo,
+//             Joseph Olympia, and Gaven Grantz
+//Course: COMP 380 Virginia Mushkatblat
+
 package client;
 
 import org.junit.Test;
@@ -38,7 +38,7 @@ public class ClientListTest {
 
     @Test
     public void testRemoveClient() {
-         ClientList list = new ClientList();
+        ClientList list = new ClientList();
         list.addClient("CLIENT1");
         list.addClient("CLIENT2");
         list.removeClient(1);
@@ -50,7 +50,7 @@ public class ClientListTest {
 
     @Test
     public void testFindClient() {
-         ClientList list = new ClientList();
+        ClientList list = new ClientList();
         list.addClient("String1");
         list.addClient("String2");
         int expected = 3;
