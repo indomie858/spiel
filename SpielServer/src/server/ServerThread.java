@@ -172,10 +172,7 @@ public class ServerThread extends Thread{
                 stObj = server.getConnections().get(i);
                 stObj.sendStringToClient(message);
                 
-                boolean connection = stObj.socket.isClosed();
-//              System.out.println(stObj.threadName + " is " + connection);
-//              InetAddress address = stObj.server.getServerSocket().getInetAddress();
-//              System.out.println(address + " is the address");
+             
 
                 System.out.println(stObj.threadName + " is the thread name...");
             } catch (NullPointerException ex){
