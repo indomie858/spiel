@@ -171,6 +171,8 @@ public class ServerThread extends Thread{
             try {
                 stObj = server.getConnections().get(i);
                 stObj.sendStringToClient(message);
+                
+             
 
                 System.out.println(stObj.threadName + " is the thread name...");
             } catch (NullPointerException ex){
