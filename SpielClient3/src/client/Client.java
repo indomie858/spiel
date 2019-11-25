@@ -15,10 +15,11 @@ public class Client {
     private ClientThread clientThread;
     public ClientController guiController = null;
 
-    public static void main(String[] args) {
+    public Client () {
+    
     }
-
-    public Client(ClientController tempguiController) {
+    
+    public Client(ClientController tempguiController) throws InterruptedException {
         guiController = tempguiController;
         
         int portNumber = Integer.parseInt(guiController.getPort()); //takes the port number from GUI
@@ -33,6 +34,10 @@ public class Client {
         } catch (Exception e) {
             guiController.updateChatBoxOutput("Invalid IP...");
         }
+    }
+
+    
+    public static void main(String[] args) {
     }
 
     public ClientThread getClientThread() {

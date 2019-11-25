@@ -7,6 +7,7 @@ package spiel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -40,13 +41,14 @@ public class Rando
         list.add("Shay Kitoff"); list.add("Dank Memes");
         list.add("Back Cardi"); list.add("Your husband");
         list.add("Its Britney B."); list.add("Your wife");
-        list.add("Dirty Dan"); list.add("Osama");
+        list.add("Dirty Dan"); list.add("Obama");
         list.add("Pinhead Larry"); list.add("Gandhi");
         list.add("Sheik Yerbouti"); list.add("Uranus");
         list.add("Jesus"); list.add("Corn Hub");
         list.add("He"); 
         list.add("She");
         list.add("Debt Collector");
+        list.add("Dianne Harrison");
         list.add("Your Bills");
         list.add("Hillary Clinton");
         list.add("THAT MEAT");
@@ -76,6 +78,7 @@ public class Rando
         
         int number = randomNumber.nextInt(arraySize);
         name = list.get(number);
+        Collections.shuffle(list);
         return name;
 	}
 

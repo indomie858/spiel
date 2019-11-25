@@ -8,6 +8,8 @@ package client;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import spiel.ClientController;
 
 
@@ -85,6 +87,8 @@ public class ClientThread extends Thread {
                 
                  } catch (ClassNotFoundException ex) {
                    // ex.printStackTrace();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             
@@ -120,6 +124,8 @@ public class ClientThread extends Thread {
                     System.out.println(message);
                 } catch (IOException ex) {
                     //ex.printStackTrace();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -180,7 +186,7 @@ public class ClientThread extends Thread {
     public void updateOnlineUser(String message){
         
         // if their is a new user, add the new user to the clientList array list-----------------
-        if (message.contains("> is now online...") == true){ 
+        if ((message.contains("> is now online...") == true) && (message.contains(":") == false)){ 
             guiController.newUserSound();
             
             for (String retval: message.split(">")){                

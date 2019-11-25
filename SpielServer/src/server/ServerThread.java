@@ -14,12 +14,13 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Date;
+import spiel.ServerController;
 
 /**
  *
  * @author gafaa
  */
-public class ServerThread extends Thread {
+public class ServerThread extends Thread{
 
     private Socket socket;
     private Server server;
@@ -35,6 +36,7 @@ public class ServerThread extends Thread {
     private String text = null;
     private ArrayList<String> token = new ArrayList<String>();
     private ServerThread stObj = null;
+    private ServerController guiController = null;
     
     
 
@@ -112,8 +114,7 @@ public class ServerThread extends Thread {
                     for (String retval: message.split(">")){
                         token.add(retval);
                     }
-                    
-                    //
+
                     int indexLocation = clientList.findClient(token.get(0));
                     clientList.removeClient(indexLocation);
                     
@@ -123,7 +124,6 @@ public class ServerThread extends Thread {
                 }
                 
                 sendStringToAllClients(text);
-                System.out.println("Message sent");
             }
 
         } catch (IOException ex ) {
@@ -156,7 +156,8 @@ public class ServerThread extends Thread {
     }
     
     //writes string to client by dataoutputstream (dos)
-    private void sendStringToClient(String message) {   
+    private void sendStringToClient(String message) { 
+        
         try {
             dataOutputStream.writeUTF(message);
             dataOutputStream.flush();
@@ -172,16 +173,12 @@ public class ServerThread extends Thread {
                 stObj = server.getConnections().get(i);
                 stObj.sendStringToClient(message);
                 
-                boolean connection = stObj.socket.isClosed();
-                System.out.println(stObj.threadName + " is " + connection);
-//              InetAddress address = stObj.server.getServerSocket().getInetAddress();
-//              System.out.println(address + " is the address");
-
-                System.out.println(stObj.threadName + " is the thread name...");
             } catch (NullPointerException ex){
                // ex.printStackTrace();
             }
         }   
     }
+ 
+    
 
 }
