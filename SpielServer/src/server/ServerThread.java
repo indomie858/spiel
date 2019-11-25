@@ -91,7 +91,7 @@ public class ServerThread extends Thread{
 
             while (isRunning) {  //keeps the program running
                 
-                //if the client doesnt send anything, the program gets trapped here----
+                //if the client doesnt send anything, the program gets trapped here--------
                 while (dataInputStream.available() == 0) { 
                     try {
                         Thread.sleep(1);   
@@ -143,6 +143,11 @@ public class ServerThread extends Thread{
             
             hours %= 12;
             ampm = "PM";
+        } else if (hours == 0){
+            hours = 12;
+        }
+        else {
+            // do nothing
         }
         
         String completeTime = new String();
@@ -178,7 +183,5 @@ public class ServerThread extends Thread{
             }
         }   
     }
- 
-    
 
 }
