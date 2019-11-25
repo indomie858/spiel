@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import javafx.scene.image.Image;
 
 /**
  *
@@ -34,6 +35,10 @@ public class Spiel extends Application {
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("S.P.I.E.L");
+        Image icon = new Image (getClass().getResourceAsStream("spiel_icon.jpg"));
+        stage.getIcons().add(icon);
+        stage.setScene(scene);
+        stage.show();
         
          
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
