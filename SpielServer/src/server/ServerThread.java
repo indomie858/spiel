@@ -37,6 +37,8 @@ public class ServerThread extends Thread{
     private ArrayList<String> token = new ArrayList<String>();
     private ServerThread stObj = null;
     private ServerController guiController = null;
+   
+    
     
     
 
@@ -74,6 +76,7 @@ public class ServerThread extends Thread{
                 
                 //notifys all client who went online-----------------
                 dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                guiController.updateChatBoxOutput(threadName + " is now online... \n");
                 sendStringToAllClients(threadName + "> is now online...");
                 System.out.println(threadName + "> is now online...");
                 
@@ -91,7 +94,7 @@ public class ServerThread extends Thread{
 
             while (isRunning) {  //keeps the program running
                 
-                //if the client doesnt send anything, the program gets trapped here----
+                //if the client doesnt send anything, the program gets trapped here--------
                 while (dataInputStream.available() == 0) { 
                     try {
                         Thread.sleep(1);   
@@ -122,7 +125,7 @@ public class ServerThread extends Thread{
                     text = completeTime + " | " + message;
                     messages.addMessage(text);    //adds message to MessageHistory object
                 }
-                
+                guiController.updateChatBoxOutput(text + "\n");
                 sendStringToAllClients(text);
             }
 
@@ -133,7 +136,7 @@ public class ServerThread extends Thread{
     }
 
     //date and timestamp
-    private String dateTime() { 
+    public String dateTime() { 
         Date date = new Date();     
         int hours = date.getHours();
         int minutes = date.getMinutes();
@@ -143,6 +146,11 @@ public class ServerThread extends Thread{
             
             hours %= 12;
             ampm = "PM";
+        } else if (hours == 0){
+            hours = 12;
+        }
+        else {
+            // do nothing
         }
         
         String completeTime = new String();
@@ -179,6 +187,9 @@ public class ServerThread extends Thread{
         }   
     }
  
+    public void setGUIController(ServerController tempguiController){
+        guiController = tempguiController;
+    }
     
 
 }

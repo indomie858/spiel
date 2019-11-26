@@ -26,8 +26,7 @@ public class ServerController implements Initializable {  //server controller
     private Server serverObj;
     private ServerThread serverThread;
     
-    @FXML
-    private TextField portTextField = new TextField();
+
     @FXML
     private TextArea serverTextfield = new TextArea();
     @FXML
@@ -63,6 +62,8 @@ public class ServerController implements Initializable {  //server controller
     public void updateChatBoxOutput(String text){
         serverTextfield.appendText(text);
     }
+    
+    
  
     @Override
     public void initialize(URL url, ResourceBundle rb) {

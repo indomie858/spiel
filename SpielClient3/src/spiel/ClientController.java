@@ -42,6 +42,8 @@ public class ClientController implements Initializable {  //client controller
     private int randomNum = (int) (Math.random() * 100);
     private boolean quitButtonCheck = true;
     private Rando nameGenerator;
+    private String serverMessageCheck = "empty";
+    private ArrayList<String> token = new ArrayList<String>();
     
     
 
@@ -124,7 +126,6 @@ public class ClientController implements Initializable {  //client controller
         usernameInputBox.clear();
         usernameInputBox.setDisable(false);
         ipField.setDisable(false);
-        portField.setDisable(false);
         chatBoxInput.setDisable(true);
         usernameInputBox.clear();
         chatBoxOutput.appendText("You are now disconnected...  \n");
@@ -155,7 +156,7 @@ public class ClientController implements Initializable {  //client controller
         JOptionPane optionPane = new JOptionPane(
                 "How to use chatbox: \n"
                 + "Step 1: Enter a username.      **Empty username will generate a random username. \n"
-                + "Step 2: Enter a port number.  **This feature is currently disabled until future updates \n"
+                + "Step 2: Enter a port number.  **This feature is currently disabled until [TBA] \n"
                 + "Step 3: Enter an IP address.   **Only enter an IP address if you are trying to connect to a different computer. \n"
                 + "Step 4: Click connect.              **Assuming that the server is online; offline server will lead to no connection \n"
                 + "Step 5: Type message.            **Enter any message you like to send \n"
@@ -165,7 +166,16 @@ public class ClientController implements Initializable {  //client controller
                 + "Quit = closes the chat box \n"
                 + "Connect = connects client to server \n"
                 + "Disconnect = disconnect client from server \n"
-                + "Send = send message to other client \n",
+                + "Send = send message to other client \n"
+                + "\n"
+                + "***If server goes offline (fork bomb), the window will automatically close if you are CONNECTED. DISCONNECTED client will not be affected**** \n"
+                + "***To prevent the window from closing when server goes offline(fork bomb), DISCONNECT beforehand*** \n"
+                + "\n"        
+                + "***MY CLIENT WINDOW FROZE! WHAT DO I DO?*** \n"
+                + "Step 1: Do not touch your previous client \n"
+                        + "Step 2: Open a new client window \n"
+                        + "Step 3: Notify the server"
+                +        
                 JOptionPane.WARNING_MESSAGE);
       
         optionPane.setFont(new Font("Arial", Font.PLAIN, 36));
