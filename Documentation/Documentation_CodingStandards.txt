@@ -1,20 +1,20 @@
 Naming Conventions
 Classes and Interfaces :
-ï	Class names should be nouns, in mixed case with the first letter of each internal word capitalised. Interfaces name should also be capitalised just like class names.
-ï	Use whole words and must avoid acronyms and abbreviations.
+‚Ä¢	Class names should be nouns, in mixed case with the first letter of each internal word capitalised. Interfaces name should also be capitalised just like class names.
+‚Ä¢	Use whole words and must avoid acronyms and abbreviations.
 Methods :
-ï	Methods should be verbs, in mixed case with the first letter lowercase and with the first letter of each internal word capitalised.
+‚Ä¢	Methods should be verbs, in mixed case with the first letter lowercase and with the first letter of each internal word capitalised.
 Variables : Variable names should be short yet meaningful.
-ï	Should not start with underscore(ë_í) or dollar sign ë$í characters.
-ï	Should be mnemonic i.e, designed to indicate to the casual observer the intent of its use.
-ï	One-character variable names should be avoided except for temporary variables.
-ï	Common names for temporary variables are i, j, k, m, and n for integers; c, d, and e for characters.
+‚Ä¢	Should not start with underscore(‚Äò_‚Äô) or dollar sign ‚Äò$‚Äô characters.
+‚Ä¢	Should be mnemonic i.e, designed to indicate to the casual observer the intent of its use.
+‚Ä¢	One-character variable names should be avoided except for temporary variables.
+‚Ä¢	Common names for temporary variables are i, j, k, m, and n for integers; c, d, and e for characters.
 Constant variables:
-ï	Should be all uppercase with words separated by underscores (ì_î).
-ï	There are various constants used in predefined classes like Float, Long, String etc.
+‚Ä¢	Should be all uppercase with words separated by underscores (‚Äú_‚Äù).
+‚Ä¢	There are various constants used in predefined classes like Float, Long, String etc.
 Packages:
-ï	The prefix of a unique package name is always written in all-lowercase ASCII letters and should be one of the top-level domain names, like com, edu, gov, mil, net, org.
-ï	Subsequent components of the package name vary according to an organisationís own internal naming conventions.
+‚Ä¢	The prefix of a unique package name is always written in all-lowercase ASCII letters and should be one of the top-level domain names, like com, edu, gov, mil, net, org.
+‚Ä¢	Subsequent components of the package name vary according to an organisation‚Äôs own internal naming conventions.
 
 2.12 The terms get/set must be used where an attribute is accessed directly.
 employee.getName();
