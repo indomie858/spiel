@@ -29,8 +29,7 @@ public class ServerController implements Initializable {  //server controller
     private Server serverObj;
     private ServerThread serverThread;
     
-    @FXML
-    private TextField portTextField = new TextField();
+
     @FXML
     private TextArea serverTextfield = new TextArea();
     @FXML
@@ -39,6 +38,7 @@ public class ServerController implements Initializable {  //server controller
     private Button forkBomb = new Button();
     @FXML
     private Button exitButton = new Button();
+
     @FXML
     private void handleStartButtonAction(ActionEvent event) {
  
@@ -47,10 +47,11 @@ public class ServerController implements Initializable {  //server controller
        startServerButton.setDisable(true);
        forkBomb.setDisable(false);
        exitButton.setDisable(true);
-       
+
        
         
     }
+
     @FXML
     private void exitButtonAction(ActionEvent event){
         System.exit(0);
@@ -74,6 +75,8 @@ public class ServerController implements Initializable {  //server controller
     public void updateChatBoxOutput(String text){
         serverTextfield.appendText(text);
     }
+    
+    
  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
