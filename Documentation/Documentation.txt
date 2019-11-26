@@ -16,6 +16,28 @@ Packages:
 •	The prefix of a unique package name is always written in all-lowercase ASCII letters and should be one of the top-level domain names, like com, edu, gov, mil, net, org.
 •	Subsequent components of the package name vary according to an organisation’s own internal naming conventions.
 
+2.12 The terms get/set must be used where an attribute is accessed directly.
+employee.getName();
+employee.setName(name);
+
+matrix.getElement(2, 4);
+matrix.setElement(2, 4, value);
+Common practice in the Java community and the convention used by Oracle for the Java core packages.
+
+2.13 is prefix should be used for boolean variables and methods.
+isSet, isVisible, isFinished, isFound, isOpen
+This is the naming convention for boolean methods and variables used by Oracle for the Java core packages.
+Using the is prefix solves a common problem of choosing bad boolean names like status or flag. isStatus or isFlag simply doesn't fit, and the programmer is forced to chose more meaningful names.
+
+Setter methods for boolean variables must have set prefix as in:
+
+  void setFound(boolean isFound);
+There are a few alternatives to the is prefix that fits better in some situations. These are has, can and should prefixes:
+
+  boolean hasLicense();
+  boolean canEvaluate();
+  boolean shouldAbort = false;
+
 File name
 The source file name consists of the case-sensitive name of the top-level class it contains (of which there is exactly one), plus the .java extension
 
