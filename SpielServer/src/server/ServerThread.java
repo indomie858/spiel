@@ -37,6 +37,8 @@ public class ServerThread extends Thread{
     private ArrayList<String> token = new ArrayList<String>();
     private ServerThread stObj = null;
     private ServerController guiController = null;
+   
+    
     
     
 
@@ -74,6 +76,7 @@ public class ServerThread extends Thread{
                 
                 //notifys all client who went online-----------------
                 dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                guiController.updateChatBoxOutput(threadName + " is now online... \n");
                 sendStringToAllClients(threadName + "> is now online...");
                 System.out.println(threadName + "> is now online...");
                 
@@ -122,7 +125,7 @@ public class ServerThread extends Thread{
                     text = completeTime + " | " + message;
                     messages.addMessage(text);    //adds message to MessageHistory object
                 }
-                
+                guiController.updateChatBoxOutput(text + "\n");
                 sendStringToAllClients(text);
             }
 
@@ -133,7 +136,7 @@ public class ServerThread extends Thread{
     }
 
     //date and timestamp
-    private String dateTime() { 
+    public String dateTime() { 
         Date date = new Date();     
         int hours = date.getHours();
         int minutes = date.getMinutes();
@@ -183,5 +186,10 @@ public class ServerThread extends Thread{
             }
         }   
     }
+ 
+    public void setGUIController(ServerController tempguiController){
+        guiController = tempguiController;
+    }
+    
 
 }
