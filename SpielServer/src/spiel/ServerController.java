@@ -8,13 +8,10 @@ package spiel;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import server.Server;
@@ -41,15 +38,11 @@ public class ServerController implements Initializable {  //server controller
     private Button exitButton = new Button();
     @FXML
     private void handleStartButtonAction(ActionEvent event) {
- 
        serverObj = new Server(this);
        serverThread = serverObj.getServerThread();
        startServerButton.setDisable(true);
        forkBomb.setDisable(false);
        exitButton.setDisable(true);
-       
-       
-        
     }
     @FXML
     private void exitButtonAction(ActionEvent event){
@@ -57,9 +50,7 @@ public class ServerController implements Initializable {  //server controller
     }
     
     @FXML
-    private void handleEndButtonAction(ActionEvent event) throws IOException, InterruptedException {
-        
-           
+    private void handleEndButtonAction(ActionEvent event) throws IOException, InterruptedException {           
             serverObj.serverOffline();       
             serverTextfield.appendText("FORK BOMB initiated!! \nAll connected clients have been wiped out! \n" );
             exitButton.setDisable(false);
@@ -67,8 +58,6 @@ public class ServerController implements Initializable {  //server controller
             forkBomb.setDisable(true);
             serverObj.closeServerSocket();
             serverTextfield.appendText("Server is now offline..\n");
-       
- 
     }
     
     public void updateChatBoxOutput(String text){
