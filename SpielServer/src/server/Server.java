@@ -52,7 +52,7 @@ public class Server {
             public void run() {
                 try {
                     serverSocket = new ServerSocket(portNumber);
-
+                    
                     while (isRunning) {
                         
                                 socket = serverSocket.accept();
@@ -60,7 +60,7 @@ public class Server {
                                 System.out.println("Client Accepted");
                                 guiController.updateChatBoxOutput("Client Accepted... \n");
                                 stObject = new ServerThread(socket, server);
-
+                                stObject.setGUIController(guiController);
                                 stObject.start();
 
                                 connections.add(stObject);
@@ -81,7 +81,9 @@ public class Server {
       
         if (connections.size() != 0){
             for (int i = 0; i < connections.size(); i++){
+              
                 connections.get(i).sendStringToAllClients("Server is now offline! Disconnect client!");
+           
             }
           connections.clear();
         } else {
@@ -92,4 +94,6 @@ public class Server {
     public void closeServerSocket() throws IOException {
         serverSocket.close();
     }
+
+  
 }
