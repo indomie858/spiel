@@ -88,7 +88,7 @@ public class ClientThread extends Thread {
                  } catch (ClassNotFoundException ex) {
                    // ex.printStackTrace();
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
+                  //  Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             
@@ -125,7 +125,7 @@ public class ClientThread extends Thread {
                 } catch (IOException ex) {
                     //ex.printStackTrace();
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
+                   // Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }

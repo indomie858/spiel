@@ -157,29 +157,34 @@ public class ClientController implements Initializable {  //client controller
  
         
         JOptionPane optionPane = new JOptionPane(
-                "How to use chatbox: \n"
+                "***HOW TO USE CHATBOX: \n"
                 + "Step 1: Enter a username.      **Empty username will generate a random username. \n"
                 + "Step 2: Enter a port number.  **This feature is currently disabled until [TBA] \n"
                 + "Step 3: Enter an IP address.   **Only enter an IP address if you are trying to connect to a different computer. \n"
                 + "Step 4: Click connect.              **Assuming that the server is online; offline server will lead to no connection \n"
                 + "Step 5: Type message.            **Enter any message you like to send \n"
                 + "Step 6: Click send.                    **Sends the message to the other client \n"
-                + "\n"
-                + "Button function: \n"
+               
+                + "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n"
+                   
+                + "***BUTTON FUNCTION: \n"
                 + "Quit = closes the chat box \n"
                 + "Connect = connects client to server \n"
                 + "Disconnect = disconnect client from server \n"
                 + "Send = send message to other client \n"
-                + "\n"
-                + "***If server goes offline (fork bomb), the window will automatically close if you are CONNECTED. DISCONNECTED client will not be affected**** \n"
-                + "***To prevent the window from closing when server goes offline(fork bomb), DISCONNECT beforehand*** \n"
-                + "\n"        
-                + "***MY CLIENT WINDOW FROZE! WHAT DO I DO?*** \n"
+                + "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n"
+                + "***If server goes offline (fork bomb), the window will automatically close if you are CONNECTED. DISCONNECTED client will not be affected \n"
+                + "***To prevent the window from closing when server goes offline(fork bomb), DISCONNECT beforehand \n"
+                + "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n"        
+                + "***MY CLIENT WINDOW FROZE! WHAT DO I DO? \n"
                 + "Step 1: Do not touch your previous client \n"
-                        + "Step 2: Open a new client window \n"
-                        + "Step 3: Notify the server"
-                +        
-                JOptionPane.WARNING_MESSAGE);
+                + "Step 2: Open a new client window \n"
+                + "Step 3: Notify the server to FORK BOMB due to client error \n"
+                + "Step 4: Notify the other clients to disconnect for a good couple of seconds. Enough time to FORK BOMB \n"
+                + "Step 5: Re-connect to the server if the server is ready to accept client\n"
+                + "Step 6: If frozen client dissappears, then server has initiated FORK BOMB\n"
+                
+                );
       
         optionPane.setFont(new Font("Arial", Font.PLAIN, 36));
         JDialog dialog = optionPane.createDialog("Help");
