@@ -28,6 +28,11 @@ import javax.swing.UIManager;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -43,6 +48,8 @@ public class ClientController implements Initializable {  //client controller
     private int randomNum = (int) (Math.random() * 100);
     private boolean quitButtonCheck = true;
     private Rando nameGenerator;
+    private String serverMessageCheck = "empty";
+    private ArrayList<String> token = new ArrayList<String>();
     
     
 
@@ -66,6 +73,10 @@ public class ClientController implements Initializable {  //client controller
     private Button connectButton = new Button();
     @FXML
     private Button disconnectButton = new Button();
+     @FXML
+    private Button helpButton = new Button();
+      @FXML
+    private Button quitButton = new Button();
 
     @FXML
     private void handleSendButtonAction(ActionEvent event) {
@@ -74,7 +85,7 @@ public class ClientController implements Initializable {  //client controller
     
     //this is for when the "Connect" button is clicked
     @FXML
-    private void handleConnectButtonAction(ActionEvent event) throws IOException {
+    private void handleConnectButtonAction(ActionEvent event) throws IOException, InterruptedException {
         if (ipField.getText().length() != 0 && portField.getText().length() != 0){
             chatBoxOutput.clear();
             clientObj = new Client(this);
@@ -121,7 +132,6 @@ public class ClientController implements Initializable {  //client controller
         usernameInputBox.clear();
         usernameInputBox.setDisable(false);
         ipField.setDisable(false);
-        portField.setDisable(false);
         chatBoxInput.setDisable(true);
         usernameInputBox.clear();
         chatBoxOutput.appendText("You are now disconnected...  \n");
@@ -147,23 +157,45 @@ public class ClientController implements Initializable {  //client controller
         UIManager UI=new UIManager();
         UI.put("OptionPane.background", Color.RED);
         UI.put("Panel.background", Color.lightGray);
- 
+ ImageIcon icon;
+icon=new ImageIcon("E:\\1.jpg");
+JPanel p = new Jpanel();
+p.setLayout(null);
+p.setBounds(0, 0, 1000, 140);
+JLabel a = new JLabel(icon);
+a.setBounds(0, 0, 1000, 140);
+p.add(a,-1);
+
         
         JOptionPane optionPane = new JOptionPane(
-                "How to use chatbox: \n"
+                "***HOW TO USE CHATBOX: \n"
                 + "Step 1: Enter a username.      **Empty username will generate a random username. \n"
-                + "Step 2: Enter a port number.  **This feature is currently disabled until future updates \n"
+                + "Step 2: Enter a port number.  **This feature is currently disabled until [TBA] \n"
                 + "Step 3: Enter an IP address.   **Only enter an IP address if you are trying to connect to a different computer. \n"
                 + "Step 4: Click connect.              **Assuming that the server is online; offline server will lead to no connection \n"
                 + "Step 5: Type message.            **Enter any message you like to send \n"
                 + "Step 6: Click send.                    **Sends the message to the other client \n"
-                + "\n"
-                + "Button function: \n"
+               
+                + "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n"
+                   
+                + "***BUTTON FUNCTION: \n"
                 + "Quit = closes the chat box \n"
                 + "Connect = connects client to server \n"
                 + "Disconnect = disconnect client from server \n"
-                + "Send = send message to other client \n",
-                JOptionPane.WARNING_MESSAGE);
+                + "Send = send message to other client \n"
+                + "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n"
+                + "***If server goes offline (fork bomb), the window will automatically close if you are CONNECTED. DISCONNECTED client will not be affected \n"
+                + "***To prevent the window from closing when server goes offline(fork bomb), DISCONNECT beforehand \n"
+                + "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- \n"        
+                + "***MY CLIENT WINDOW FROZE! WHAT DO I DO? \n"
+                + "Step 1: Do not touch your previous client \n"
+                + "Step 2: Open a new client window \n"
+                + "Step 3: Notify the server to FORK BOMB due to client error \n"
+                + "Step 4: Notify the other clients to disconnect for a good couple of seconds. Enough time to FORK BOMB \n"
+                + "Step 5: Re-connect to the server if the server is ready to accept client\n"
+                + "Step 6: If frozen client dissappears, then server has initiated FORK BOMB\n"
+                
+                );
       
         optionPane.setFont(new Font("Arial", Font.PLAIN, 36));
         JDialog dialog = optionPane.createDialog("Help");
@@ -222,10 +254,27 @@ public class ClientController implements Initializable {  //client controller
     }
     
     //Displays text in the chat box text-area
-    public void updateChatBoxOutput(String text) {
-        if (text.contains("> is now online...")){
+    public void updateChatBoxOutput(String text) throws InterruptedException {
+        if ((text.contains("> is now online...") == true) && (text.contains(":") == false)){
             newUserSound();
             chatBoxOutput.appendText(text + "\n");
+        }
+        //when fork bomb is clicked
+        else if (text.contains("Server is now offline! Disconnect client!")){
+                chatBoxOutput.clear();
+                chatBoxInput.setDisable(true);
+                disconnectButton.setDisable(true);
+                sendButton.setDisable(true);
+                helpButton.setDisable(true);
+                quitButton.setDisable(true);
+                String input = clientThread.getUsername() + "> is now offline...";
+                clientThread.sendStringToServer(input);
+                String newMessage = clientThread.getMessage();
+                messageObj.setMessage(newMessage);
+                Thread.sleep(1);
+                System.exit(0);
+         
+                
         }
         else{
                     chatBoxOutput.appendText(text + "\n");
@@ -249,7 +298,7 @@ public class ClientController implements Initializable {  //client controller
     
     //when a client disconnect, this removes the client from the online user tab
     public void removeOnlineUserTab() {
-        String input = clientThread.getUsername() + "> is now offline...";
+            String input = clientThread.getUsername() + "> is now offline...";
             clientThread.sendStringToServer(input);
             String newMessage = clientThread.getMessage();
             messageObj.setMessage(newMessage);
@@ -282,6 +331,12 @@ public class ClientController implements Initializable {  //client controller
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+    }
+
+    private static class Jpanel extends JPanel {
+
+        public Jpanel() {
+        }
     }
 
 }
