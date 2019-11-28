@@ -2,7 +2,6 @@
 //Programmers: Frank Serdenia, Jordan Bradshaw, Hongsen Yang, Kenneth Woo,
 //             Joseph Olympia, and Gaven Grantz
 //Course: COMP 380 Virginia Mushkatblat
-
 package client;
 
 import java.util.ArrayList;
@@ -63,7 +62,4 @@ public class MessageHistoryTest {
         int actual = messageHistory.getMessageCount();
         assertEquals(expected, actual);
     }
-
-
-
 }

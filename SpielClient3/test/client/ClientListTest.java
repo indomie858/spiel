@@ -35,18 +35,18 @@ public class ClientListTest {
         int actual = list.getClientCount();
         assertEquals(expected, actual);
     }
-
-    @Test
-    public void testRemoveClient() {
-        ClientList list = new ClientList();
-        list.addClient("CLIENT1");
-        list.addClient("CLIENT2");
-        list.removeClient(1);
-        
-        int expected = 1;
-        int actual = list.getClientCount();
-        assertEquals(expected, actual);
-    }
+    
+//    @Test
+//    public void testRemoveClient() {
+//        ClientList list = new ClientList();
+//        list.addClient("CLIENT1");
+//        list.addClient("CLIENT2");
+//        list.removeClient(1);
+//        
+//        int expected = 1;
+//        int actual = list.getClientCount();
+//        assertEquals(expected, actual);
+//    }
 
     @Test
     public void testFindClient() {
