@@ -30,6 +30,9 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -47,6 +50,7 @@ public class ClientController implements Initializable {  //client controller
     private Rando nameGenerator;
     private String serverMessageCheck = "empty";
     private ArrayList<String> token = new ArrayList<String>();
+    private String clientUsername = null;
     
     
 
@@ -54,6 +58,7 @@ public class ClientController implements Initializable {  //client controller
 
     @FXML
     private TextField usernameInputBox = new TextField();
+   
     @FXML
     private TextArea chatBoxOutput = new TextArea();
     @FXML
@@ -70,15 +75,16 @@ public class ClientController implements Initializable {  //client controller
     private Button connectButton = new Button();
     @FXML
     private Button disconnectButton = new Button();
-     @FXML
+    @FXML
     private Button helpButton = new Button();
-      @FXML
+    @FXML
     private Button quitButton = new Button();
 
     @FXML
     private void handleSendButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");       
     }
+   
     
     //this is for when the "Connect" button is clicked
     @FXML
@@ -97,7 +103,7 @@ public class ClientController implements Initializable {  //client controller
             chatBoxInput.setDisable(false);
      
             String username = usernameInputBox.getText();
-        
+           
             if (username.length() == 0) {
                 nameGenerator = new Rando();
                 clientThread.setUsername(nameGenerator.getName());
@@ -110,7 +116,7 @@ public class ClientController implements Initializable {  //client controller
             }
             clientIsConnected = true;
         
-       
+            clientUsername = usernameInputBox.getText();
             messageObj.setMessage("BEGIN ");
             //clientThread.sendStringToServer
         }
@@ -154,7 +160,17 @@ public class ClientController implements Initializable {  //client controller
         UIManager UI=new UIManager();
         UI.put("OptionPane.background", Color.RED);
         UI.put("Panel.background", Color.lightGray);
- 
+        
+        ImageIcon icon=new ImageIcon("/spiel/spiel_icon.jpg");
+
+        JPanel p = new JPanel();
+        
+        p.setLayout(null);
+        p.setBounds(0, 0, 1000, 140);
+        JLabel a = new JLabel(icon);
+        a.setBounds(0, 0, 1000, 140);
+        p.add(a,-1);
+
         
         JOptionPane optionPane = new JOptionPane(
                 "***HOW TO USE CHATBOX: \n"
@@ -263,7 +279,26 @@ public class ClientController implements Initializable {  //client controller
                 Thread.sleep(1);
                 System.exit(0);
          
-                
+               
+        }
+        else if (text.contains("SERVER WANTS TO DESTROY THIS CLIENT:")){
+                if (text.contains(clientUsername)){
+                chatBoxOutput.clear();
+                chatBoxInput.setDisable(true);
+                disconnectButton.setDisable(true);
+                sendButton.setDisable(true);
+                helpButton.setDisable(true);
+                quitButton.setDisable(true);
+                String input = clientThread.getUsername() + "> is now offline...";
+                clientThread.sendStringToServer(input);
+                String newMessage = clientThread.getMessage();
+                messageObj.setMessage(newMessage);
+                Thread.sleep(1);
+                System.exit(0);
+                }
+                else {
+                    // do nothing
+                }
         }
         else{
                     chatBoxOutput.appendText(text + "\n");
