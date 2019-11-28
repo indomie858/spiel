@@ -161,17 +161,6 @@ public class ClientController implements Initializable {  //client controller
         UI.put("OptionPane.background", Color.RED);
         UI.put("Panel.background", Color.lightGray);
         
-        ImageIcon icon=new ImageIcon("/spiel/spiel_icon.jpg");
-
-        JPanel p = new JPanel();
-        
-        p.setLayout(null);
-        p.setBounds(0, 0, 1000, 140);
-        JLabel a = new JLabel(icon);
-        a.setBounds(0, 0, 1000, 140);
-        p.add(a,-1);
-
-        
         JOptionPane optionPane = new JOptionPane(
                 "***HOW TO USE CHATBOX: \n"
                 + "Step 1: Enter a username.      **Empty username will generate a random username. \n"
