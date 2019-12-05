@@ -33,12 +33,25 @@ public class ServerController implements Initializable {  //server controller
     @FXML
     private TextArea serverTextfield = new TextArea();
     @FXML
+    private TextField targetNameText = new TextField();
+    @FXML
     private Button startServerButton = new Button();
     @FXML
     private Button forkBomb = new Button();
     @FXML
     private Button exitButton = new Button();
-
+    @FXML
+    private Button targetID = new Button();
+    
+    
+    @FXML
+    private void onTargetButton(ActionEvent event){
+        String username = targetNameText.getText();
+        serverTextfield.appendText("Server has targeted: " + username + "\n");
+        serverObj.shutDownCertainClient(username);
+        targetNameText.clear();
+    }
+    
     @FXML
     private void handleStartButtonAction(ActionEvent event) {
  
@@ -47,6 +60,9 @@ public class ServerController implements Initializable {  //server controller
        startServerButton.setDisable(true);
        forkBomb.setDisable(false);
        exitButton.setDisable(true);
+       targetID.setDisable(false);
+       targetNameText.setDisable(false);
+       
 
        
         
@@ -61,16 +77,22 @@ public class ServerController implements Initializable {  //server controller
     private void handleEndButtonAction(ActionEvent event) throws IOException, InterruptedException {
         
            
-            serverObj.serverOffline();       
+            serverObj.serverOffline();  
+            serverTextfield.clear();
             serverTextfield.appendText("FORK BOMB initiated!! \nAll connected clients have been wiped out! \n" );
             exitButton.setDisable(false);
             startServerButton.setDisable(false);
             forkBomb.setDisable(true);
             serverObj.closeServerSocket();
             serverTextfield.appendText("Server is now offline..\n");
+            targetID.setDisable(true);
+            targetNameText.setDisable(true);
+            
        
  
     }
+    
+    
     
     public void updateChatBoxOutput(String text){
         serverTextfield.appendText(text);

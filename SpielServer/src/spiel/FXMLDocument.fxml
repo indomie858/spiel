@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -24,7 +25,7 @@
          <font>
             <Font name="Impact" size="16.0" />
          </font></Button>
-      <TextArea fx:id="serverTextfield" editable="false" layoutX="72.0" layoutY="66.0" opacity="0.76" prefHeight="252.0" prefWidth="382.0" promptText="[Start = start server]                                  [Fork Bomb = wipe out all client]               [Exit = exit the server]" stylesheets="@backgroundStyle.css" wrapText="true">
+      <TextArea fx:id="serverTextfield" editable="false" layoutX="72.0" layoutY="64.0" opacity="0.76" prefHeight="201.0" prefWidth="382.0" promptText="[Start = start server]                                  [Fork Bomb = wipe out all client]               [Exit = exit the server]                              [Target Client = close a specific client]" stylesheets="@backgroundStyle.css" wrapText="true">
          <font>
             <Font name="Times New Roman" size="19.0" />
          </font></TextArea>
@@ -82,5 +83,15 @@
             <Font name="Impact" size="49.0" />
          </font>
       </Text>
+      <TextField fx:id="targetNameText" disable="true" layoutX="73.0" layoutY="281.0" prefHeight="37.0" prefWidth="243.0" promptText="Enter client name " stylesheets="@backgroundStyle.css">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </TextField>
+      <Button fx:id="targetID" disable="true" layoutX="327.0" layoutY="281.0" mnemonicParsing="false" onAction="#onTargetButton" prefHeight="37.0" prefWidth="130.0" stylesheets="@backgroundStyle.css" text="TARGET CLIENT">
+         <font>
+            <Font name="Impact" size="15.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>
