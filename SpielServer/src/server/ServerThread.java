@@ -14,6 +14,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import spiel.ServerController;
 
 /**
@@ -191,5 +192,7 @@ public class ServerThread extends Thread{
         guiController = tempguiController;
     }
     
-
+    public List<String> getMessage() {
+        return messages.getArrayObject();
+    }
 }

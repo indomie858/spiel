@@ -115,7 +115,7 @@ public class ClientController implements Initializable {  //client controller
                 clientThread.setUsername(username);
             }
             clientIsConnected = true;
-        
+            quitButtonCheck = false;
             clientUsername = usernameInputBox.getText();
             messageObj.setMessage("BEGIN ");
             //clientThread.sendStringToServer
