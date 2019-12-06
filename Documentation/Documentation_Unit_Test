@@ -2,15 +2,19 @@ UNIT TEST – CLIENT SIDE:
 
 Location: zubenelgenubi/SpielClient3/test/client
 
--	Frank Serdenia – ClientListTest.java, 
--   Hongsen Yang – ClientTest.java
--   Kenneth Woo – MessageTest.java
+-	Frank Serdenia – ClientListTest.java
+-	Kenneth Woo – ClientTest.java
+-	Hongsen Yang – MessageTest.java 
 -	Gaven Grantz – MessageHistoryTest.java 
 
 Location: zubenelgenubi/SpielClient3/test/spiel
 
 -	Joseph Olympia – RandoTest.java
 -	Gaven Grantz – SpielGUITest.java
+
+
+
+
 
 UNIT TEST – SERVER SIDE: 
 
