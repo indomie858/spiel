@@ -1,0 +1,16 @@
+User Story
+As a user,
+
+I want to input a name, so that I am not anonymous on the chat.
+I want to have an assigned port number already pre-determined, so that I don't have to worry about finding a port number.
+I want to have a "send" button, so that I can send the message to the server.
+I want to have messages displayed, so that I know what messages are being sent.
+I want to have a list of clients currently on the server, so that I know who is present. (future feature)
+I want to have an "disconnect" button, so that I can disconnect from the server.
+I want to have a "message" box and "display" box, so that I know where to enter my message and where things are displayed.
+I want messages to be displayed in order, so that I know which messages gets sent
+As a server,
+
+I want an "error" message to be displayed, so that I know when the program connections,etc. failed.
+I want new clients to see previous 10 messages, so that they are updated when they connect.
+I want to keep track of the time each messages are sent, so that the messages are stored in order.
