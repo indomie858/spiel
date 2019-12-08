@@ -1,0 +1,9 @@
+EPICS: S.P.I.E.L
+Chat will consist of two applications – server side and user side. Server side application starts first and waits until one or more user side applications starts after it and connects to the server. When user connects to the server, it receives all previous messages, available in the history on the server and user can send new messages to the server. Message, send from one user, available for all other users. User sends its name with the message. User GUI is a frame, which includes one window with messages, one input for user’s name and one input for the message. Server’s IP and port can be stored in properties file either localhost can be used for testing. User app reads params from props when first starts.
+
+   User can input a Name and a Message;
+   User can get a list of saved messages;
+   User can get a message from other users;
+   User can close the user’s app;
+   Server must use threads for multitasking;
+   User can send files (optional);
