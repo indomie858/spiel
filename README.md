@@ -10,7 +10,7 @@ Multiple clients can connect to a single server using TCP/IP.
 ##### -	The server has full control as to who can communicate within its domain; in addition, the server could disconnect one or all clients within the domain.
 ##### -	How do I use the server?
 1.	Run the server application.
-2.	Set your NETWORK PROFILE to PUBLIC. (Windows 10) 
+2.	Set your NETWORK PROFILE to PUBLIC (Windows 10). 
 3.	To start the connections between clients, click “start” button.
 4.	Clients that are connected will be displayed on the display screen.
 5.	Messages being sent to clients will be displayed on the display screen.
