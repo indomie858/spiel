@@ -3,19 +3,19 @@
 This is a Java network chat application. 
 Multiple clients can connect to a single server using TCP/IP.
 
-### User Guide:
+### User Guide (Windows):
 
 #### Server-side information:
 ##### -	The server side is the intermediate between the clients; it will serve as the message runner for the clients communicating
 ##### -	The server has full control as to who can communicate within its domain; in addition, the server could disconnect one or all clients within the domain.
 ##### -	How do I use the server?
 1.	Run the server application.
-2.	Set your NETWORK PROFILE to PRIVATE. 
+2.	Set your NETWORK PROFILE to PUBLIC. 
 3.	To start the connections between clients, click “start” button.
 4.	Clients that are connected will be displayed on the display screen.
 5.	Messages being sent to clients will be displayed on the display screen.
 
-##### -	How do I set network to private?
+##### -	How do I set network to public?
 1.	Click the wireless icon on your taskbar.
 2.	On the network that you’re connected to click “Properties”
 3.	Click the option “Private”
