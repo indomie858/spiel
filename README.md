@@ -22,18 +22,18 @@ Multiple clients can connect to a single server using TCP/IP.
 
 ##### -	How do I disconnect specific clients?
 1.	To kick-out specific client, type the client name on the text-field and click “target” button.
-	This function is case sensitive, so please enter the exact username.
-	Wrong username will cause the application to do nothing.
+>	This function is case sensitive, so please enter the exact username.
+>	Wrong username will cause the application to do nothing.
 
 ##### -	How do I disconnect all clients?
 1.	To kick-out all client, click the “fork bomb” button.
-	The screen will state the disconnected clients.
+>	The screen will state the disconnected clients.
 
 ##### -	How do I close the server?
 1.	If there are ZERO CLIENTS currently connected to the server:
-	Simply click the “exit” button
+>	Simply click the “exit” button
 2.	If there are ONE OR MORE CLIENTS currently connected to the server:
-	Click “fork bomb” button and then click “exit” button
+>	Click “fork bomb” button and then click “exit” button
 
 ##### -	BUTTONS:
 1.	Start button = starts the server
@@ -47,11 +47,11 @@ Multiple clients can connect to a single server using TCP/IP.
 ##### -	How do I start the client application?
 1.	Enter a username in the username text-field.
 2.	There are two conditions:
-	If the server application is being executed using a remote computer, enter the server computer’s IP ADDRESS.
-	If the server application is being executed using the same computer as the client, keep the text-field as “localhost”.
+>	If the server application is being executed using a remote computer, enter the server computer’s IP ADDRESS.
+>	If the server application is being executed using the same computer as the client, keep the text-field as “localhost”.
 3.	Click the “Connect” button
-	If a server is online, the client will connect.
-	If a server is offline, the client will display invalid.
+>	If a server is online, the client will connect.
+>	If a server is offline, the client will display invalid.
 
 ##### -	How do I send messages to other clients? **Assuming client is connected to a server
 1.	Enter the message in the text-field.
